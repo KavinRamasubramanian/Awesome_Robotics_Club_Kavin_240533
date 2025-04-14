@@ -1,0 +1,14 @@
+PART-A
+As our sensor needs to be entirely based on electronics, we can use piezoelectric pressure sensors. We would need to create a special board where the chess tiles can move independently of each other.
+Upon applying pressure with piece on the board the circuit under the tile would send an activation signal.As to figuring out which piece moved where,We can simply deduce that from our current position.
+Eg:when white plays 1.e4, Our circuit detects an actiovation on e2 and e4,as we know the starting position of a game we can easily look up what was on e2 to conclude that a pawn moved from e2 to e4.
+This solution eliminates any need of computer vision as it is not very reliable. A major downside of such a solution is the complex circuit and the need to make our own chess board.
+
+
+
+
+PART-B
+We can use binary encoding to detect the squares.Since it has 8 rows and 8 columns we only need 6 pins to encode all squares, 3 for all rows and 3 for all columns.
+take a simpler example of 4 rows and 2 pins,all squares of row1 are connected to no pins,row2 are connected to pin1,row3 to pin2 and row4 to both pin1 and pin2.
+similarly for the 4 columns we use 2 pins connected to the squares similarly. By reading the pins output as binary number we can identify each square as a number between 0 and 15.
+For a 8x8 board we only need 6 out of the 20 pins to identify all squares, thereby vacating other pins for other functions.
